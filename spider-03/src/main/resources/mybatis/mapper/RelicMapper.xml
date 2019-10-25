@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tom.spider.mapper.RelicMapper">
+   <!-- /**
+    * 通过id查找文物
+    * @param id
+    * @return
+    */
+    Relic getRelicById(Integer id);-->
+    <select id="getRelicById" resultType="com.tom.spider.pojo.Relic">
+        select * from relic where id=#{id}
+    </select>
+
+    <!--/**
+    * 插入Relic
+    * @param relic
+    * @return
+    */
+    int addRelic(@Param("relic") Relic relic);-->
+    <insert id="addRelic">
+        insert into relic values(#{relic.id},#{relic.name},#{relic.image},#{relic.dynasty},#{relic.size},#{relic.year},#{relic.desc})
+    </insert>
+</mapper>
